@@ -73,6 +73,8 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.9.1)
     execjs (2.7.0)
+    font-awesome-rails (4.5.0.1)
+      railties (>= 3.2, < 5.1)
     git-version-bump (0.15.1)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
@@ -173,6 +175,9 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    simple_form (3.2.1)
+      actionpack (> 4, < 5.1)
+      activemodel (> 4, < 5.1)
     sinatra (1.4.7)
       rack (~> 1.5)
       rack-protection (~> 1.4)
@@ -225,6 +230,7 @@ DEPENDENCIES
   bullet
   coffee-rails (~> 4.1.0)
   dotenv-rails
+  font-awesome-rails
   jbuilder (~> 2.0)
   jquery-rails
   mailcatcher
@@ -238,6 +244,7 @@ DEPENDENCIES
   rails_12factor
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  simple_form
   slim
   slim-rails
   spring
