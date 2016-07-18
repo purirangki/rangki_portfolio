@@ -11,13 +11,8 @@ table
 
   tbody
     - @to_do.each do |task|
-      tr
-        td = task.content
-        td = task.state
-        td = link_to 'Show', task
-        td = link_to 'Edit', edit_stuk_todo_task_path(task)
-        td = link_to 'Destroy', task, data: { confirm: 'Are you sure?' }, method: :delete
-        td = link_to 'Mark as Doing', change_stuk_todo_task_path(task, state: 'doing'), method: :put
+      = render @to_do
+        
 
 h1 Doing
 
@@ -30,14 +25,8 @@ table
 
   tbody
     - @doing.each do |task|
-      tr
-        td = task.content
-        td = task.state
-        td = link_to 'Show', task
-        td = link_to 'Edit', edit_stuk_todo_task_path(task)
-        td = link_to 'Destroy', task, data: { confirm: 'Are you sure?' }, method: :delete
-        td = link_to 'Mark as To Do', change_stuk_todo_task_path(task, state: 'to_do'), method: :put
-        td = link_to 'Mark as Done', change_stuk_todo_task_path(task, state: 'done'), method: :put
+      = render @doing
+        
 
 h1 Done
 
@@ -50,15 +39,8 @@ table
 
   tbody
     - @done.each do |task|
-      tr
-        td = task.content
-        td = task.state
-        td = link_to 'Show', task
-        td = link_to 'Edit', edit_stuk_todo_task_path(task)
-        td = link_to 'Destroy', task, data: { confirm: 'Are you sure?' }, method: :delete
-        td = link_to 'Mark as Doing', change_stuk_todo_task_path(task, state: 'doing'), method: :put
-
-
+      = render @done
+        
 
 br
 

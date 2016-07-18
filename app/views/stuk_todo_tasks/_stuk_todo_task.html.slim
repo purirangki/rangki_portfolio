@@ -1,0 +1,11 @@
+tr
+  td = stuk_todo_task.content 
+  td = stuk_todo_task.state
+  td = link_to 'Show', stuk_todo_task
+  td = link_to 'Edit', edit_stuk_todo_task_path(stuk_todo_task)
+  td = link_to 'Destroy', stuk_todo_task, data: { confirm: 'Are you sure?' }, method: :delete
+  - if stuk_todo_task.state == 'doing'
+    td = link_to 'Mark as To do', change_stuk_todo_task_path(stuk_todo_task, state: 'to_do'), method: :put
+    td = link_to 'Mark as Done', change_stuk_todo_task_path(stuk_todo_task, state: 'done'), method: :put
+  - else
+    td = link_to 'Mark as Doing', change_stuk_todo_task_path(stuk_todo_task, state: 'doing'), method: :put
