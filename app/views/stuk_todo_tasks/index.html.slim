@@ -1,46 +1,18 @@
 p#notice = notice
 
-h1 To Do
+.row
+  .col-md-4
+    h1.text-center Todo
+    = render @to_do
 
-table
-  thead
-    tr
-      th Content
-      th State
-      th colspan="4"
+  .col-md-4
+    h1.text-center Doing
+    = render @doing
 
-  tbody
-    - @to_do.each do |task|
-      = render @to_do
-        
+  .col-md-4
+    h1.text-center Done
+    = render @done
 
-h1 Doing
-
-table
-  thead
-    tr
-      th Content
-      th State
-      th colspan="5"
-
-  tbody
-    - @doing.each do |task|
-      = render @doing
-        
-
-h1 Done
-
-table
-  thead
-    tr
-      th Content
-      th State
-      th colspan="4"
-
-  tbody
-    - @done.each do |task|
-      = render @done
-        
 
 br
 
