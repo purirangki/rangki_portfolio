@@ -4,6 +4,10 @@ p
   strong Content:
   = @stuk_todo_task.content
 
+p
+  strong State:
+  = @stuk_todo_task.state
+
 = link_to 'Edit', edit_stuk_todo_task_path(@stuk_todo_task)
 '|
 = link_to 'Back', stuk_todo_tasks_path

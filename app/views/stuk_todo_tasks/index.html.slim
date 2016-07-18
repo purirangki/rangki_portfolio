@@ -4,14 +4,14 @@ table
   thead
     tr
       th Content
-      th
-      th
-      th
+      th State
+      th colspan="3"
 
   tbody
     - @stuk_todo_tasks.each do |stuk_todo_task|
       tr
         td = stuk_todo_task.content
+        td = stuk_todo_task.state
         td = link_to 'Show', stuk_todo_task
         td = link_to 'Edit', edit_stuk_todo_task_path(stuk_todo_task)
         td = link_to 'Destroy', stuk_todo_task, data: { confirm: 'Are you sure?' }, method: :delete

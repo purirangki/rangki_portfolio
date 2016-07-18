@@ -5,7 +5,9 @@ class StukTodoTasksController < ApplicationController
   # GET /stuk_todo_tasks
   # GET /stuk_todo_tasks.json
   def index
-    @stuk_todo_tasks = current_user.stuk_todo_tasks
+    @to_do = current_user.stuk_todo_tasks.where(state: 'to_do')
+    @doing = current_user.stuk_todo_tasks.where(state: 'doing')
+    @done = current_user.stuk_todo_tasks.where(state: 'done')
   end
 
   # GET /stuk_todo_tasks/1
@@ -70,6 +72,6 @@ class StukTodoTasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stuk_todo_task_params
-      params.require(:stuk_todo_task).permit(:content)
+      params.require(:stuk_todo_task).permit(:content, :state)
     end
 end
