@@ -1,20 +1,64 @@
-h1 Listing stuk_todo_tasks
+p#notice = notice
+
+h1 To Do
 
 table
   thead
     tr
       th Content
       th State
-      th colspan="3"
+      th colspan="4"
 
   tbody
-    - @stuk_todo_tasks.each do |stuk_todo_task|
+    - @to_do.each do |task|
       tr
-        td = stuk_todo_task.content
-        td = stuk_todo_task.state
-        td = link_to 'Show', stuk_todo_task
-        td = link_to 'Edit', edit_stuk_todo_task_path(stuk_todo_task)
-        td = link_to 'Destroy', stuk_todo_task, data: { confirm: 'Are you sure?' }, method: :delete
+        td = task.content
+        td = task.state
+        td = link_to 'Show', task
+        td = link_to 'Edit', edit_stuk_todo_task_path(task)
+        td = link_to 'Destroy', task, data: { confirm: 'Are you sure?' }, method: :delete
+        td = link_to 'Mark as Doing', change_stuk_todo_task_path(task, state: 'doing'), method: :put
+
+h1 Doing
+
+table
+  thead
+    tr
+      th Content
+      th State
+      th colspan="5"
+
+  tbody
+    - @doing.each do |task|
+      tr
+        td = task.content
+        td = task.state
+        td = link_to 'Show', task
+        td = link_to 'Edit', edit_stuk_todo_task_path(task)
+        td = link_to 'Destroy', task, data: { confirm: 'Are you sure?' }, method: :delete
+        td = link_to 'Mark as To Do', change_stuk_todo_task_path(task, state: 'to_do'), method: :put
+        td = link_to 'Mark as Done', change_stuk_todo_task_path(task, state: 'done'), method: :put
+
+h1 Done
+
+table
+  thead
+    tr
+      th Content
+      th State
+      th colspan="4"
+
+  tbody
+    - @done.each do |task|
+      tr
+        td = task.content
+        td = task.state
+        td = link_to 'Show', task
+        td = link_to 'Edit', edit_stuk_todo_task_path(task)
+        td = link_to 'Destroy', task, data: { confirm: 'Are you sure?' }, method: :delete
+        td = link_to 'Mark as Doing', change_stuk_todo_task_path(task, state: 'doing'), method: :put
+
+
 
 br
 

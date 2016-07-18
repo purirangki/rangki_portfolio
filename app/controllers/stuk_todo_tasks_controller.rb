@@ -1,5 +1,5 @@
 class StukTodoTasksController < ApplicationController
-  before_action :set_stuk_todo_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_stuk_todo_task, only: [:show, :edit, :update, :destroy, :change]
   before_action :authenticate_user!
 
   # GET /stuk_todo_tasks
@@ -61,6 +61,13 @@ class StukTodoTasksController < ApplicationController
     respond_to do |format|
       format.html { redirect_to stuk_todo_tasks_url, notice: 'Stuk todo task was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def change
+    @stuk_todo_task.update_attributes(state: params[:state])
+    respond_to do |format|
+      format.html { redirect_to stuk_todo_tasks_path, notice: 'Task status successfully changed!' }
     end
   end
 
