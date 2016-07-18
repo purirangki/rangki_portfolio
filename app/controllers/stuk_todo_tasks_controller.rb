@@ -1,10 +1,11 @@
 class StukTodoTasksController < ApplicationController
   before_action :set_stuk_todo_task, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /stuk_todo_tasks
   # GET /stuk_todo_tasks.json
   def index
-    @stuk_todo_tasks = StukTodoTask.all
+    @stuk_todo_tasks = current_user.stuk_todo_tasks
   end
 
   # GET /stuk_todo_tasks/1
@@ -24,7 +25,7 @@ class StukTodoTasksController < ApplicationController
   # POST /stuk_todo_tasks
   # POST /stuk_todo_tasks.json
   def create
-    @stuk_todo_task = StukTodoTask.new(stuk_todo_task_params)
+    @stuk_todo_task = current_user.stuk_todo_tasks.new(stuk_todo_task_params)
 
     respond_to do |format|
       if @stuk_todo_task.save
