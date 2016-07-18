@@ -4,6 +4,7 @@
       |Created 
       = time_ago_in_words(stuk_todo_task.created_at)
       |  ago
+    = link_to 'X', stuk_todo_tasks_path(stuk_todo_task), method: :delete, data: { confirm: 'Are you sure?' }, class: 'pull-right'
   .panel-body = stuk_todo_task.content
   .panel-footer.text-center
     .btn-group.btn-group-justified
