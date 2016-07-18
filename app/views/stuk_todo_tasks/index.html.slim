@@ -1,0 +1,21 @@
+h1 Listing stuk_todo_tasks
+
+table
+  thead
+    tr
+      th Content
+      th
+      th
+      th
+
+  tbody
+    - @stuk_todo_tasks.each do |stuk_todo_task|
+      tr
+        td = stuk_todo_task.content
+        td = link_to 'Show', stuk_todo_task
+        td = link_to 'Edit', edit_stuk_todo_task_path(stuk_todo_task)
+        td = link_to 'Destroy', stuk_todo_task, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Stuk todo task', new_stuk_todo_task_path

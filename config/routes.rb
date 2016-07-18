@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :tasks
+  resources :stuk_todo_tasks
   root 'pages#home'
 
   devise_for :users
