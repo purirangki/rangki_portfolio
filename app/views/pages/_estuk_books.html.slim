@@ -1,0 +1,14 @@
+table.table.table-condensed
+  thead
+    tr
+      th ID
+      th Name
+      th Available
+      th
+  tbody
+    - @stuk_books.each do |book|
+      tr
+        td #{book.id}
+        td = link_to book.name, stuk_book_path(book)
+        td #{book.availability}
+        td = link_to 'Edit', edit_stuk_book_path(book)

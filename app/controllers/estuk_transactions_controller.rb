@@ -1,4 +1,4 @@
-class EstukTransactionsController
+class EstukTransactionsController < ApplicationController
   def create
     book = StukBook.find_by!(slug: params[:slug])
     

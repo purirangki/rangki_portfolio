@@ -12,5 +12,7 @@ class PagesController < ApplicationController
 
   def estuk_dashboard
     @stuk_books = current_user.stuk_books
+    @purchased = EStukSale.where(buyer_email: current_user.email)
+    @sales = EStukSale.where(seller_email: current_user.email)
   end
 end

@@ -1,7 +1,7 @@
 .col-md-3
   .thumbnail
     = link_to stuk_book_path(stuk_book) do
-      = image_tag 'book.jpg', class: 'img-responsive'
+      = image_tag stuk_book.image_url, class: 'img-responsive'
 
   .caption
     p:strong = stuk_book.name
