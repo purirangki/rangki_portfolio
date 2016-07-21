@@ -70,7 +70,7 @@ class StukBooksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_stuk_book
-      @stuk_book = StukBook.find(params[:id])
+      @stuk_book = StukBook.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

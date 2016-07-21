@@ -41,3 +41,4 @@ gem 'auto_html'
 
 gem 'carrierwave'
 gem 'cloudinary'
+gem 'friendly_id'
