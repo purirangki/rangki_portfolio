@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
 
   has_many :stuk_todo_tasks, dependent: :destroy
   has_many :stuk_books, dependent: :destroy
+  has_many :stuk_starter_projects, dependent: :destroy
 end
