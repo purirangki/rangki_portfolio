@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   root 'pages#stuk_to_do_home'
 
   resources :stuk_books
+
+  post '/buy/:slug', to: 'estuk_transactions#create', as: :buy
+  get '/pickup/:guid', to: 'estuk_transactions#pickup', as: :pickup
+
   resources :stuk_todo_tasks do
     member do
       put :change

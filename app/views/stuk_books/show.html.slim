@@ -7,6 +7,12 @@
       p.justify #{@stuk_book.description}
       h4.text-right $#{@stuk_book.price.to_f / 100}
 
+      - if current_user
+        = form_tag buy_path(slug: @stuk_book.slug) do
+          script[src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="#{Rails.configuration.stripe[:publishable_key]}" data-amount="#{@stuk_book.price}" data-name="eRangki" data-description="#{@stuk_book.name}" data-image="#{current_user.email}" data-locale="auto"]
+      - else
+        p Please login first to Buy
+
 = link_to 'Edit', edit_stuk_book_path(@stuk_book)
 '|
 = link_to 'Back', stuk_books_path
