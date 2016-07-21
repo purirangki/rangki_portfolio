@@ -38,3 +38,6 @@ gem 'devise'
 gem 'cancancan'
 
 gem 'auto_html'
+
+gem 'carrierwave'
+gem 'cloudinary'

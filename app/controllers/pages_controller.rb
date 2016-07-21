@@ -7,6 +7,7 @@ class PagesController < ApplicationController
 
   def estuk_home
     redirect_to stuk_books_path if current_user
+    @stuk_books = StukBook.last(4)
   end
 
   def estuk_dashboard
