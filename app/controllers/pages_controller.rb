@@ -15,4 +15,9 @@ class PagesController < ApplicationController
     @purchased = EStukSale.where(buyer_email: current_user.email)
     @sales = EStukSale.where(seller_email: current_user.email)
   end
+
+  def stuk_starter_home
+    @stuk_starter_projects = StukStarterProject.all
+    @displayed_projects = StukStarterProject.take(4)
+  end
 end
