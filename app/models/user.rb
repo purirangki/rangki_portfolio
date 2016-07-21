@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :stuk_todo_tasks, dependent: :destroy
+  has_many :stuk_books, dependent: :destroy
 end

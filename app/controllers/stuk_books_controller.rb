@@ -1,5 +1,6 @@
 class StukBooksController < ApplicationController
   before_action :set_stuk_book, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
 
   # GET /stuk_books
   # GET /stuk_books.json
@@ -24,7 +25,7 @@ class StukBooksController < ApplicationController
   # POST /stuk_books
   # POST /stuk_books.json
   def create
-    @stuk_book = StukBook.new(stuk_book_params)
+    @stuk_book = current_user.stuk_books.new(stuk_book_params)
 
     respond_to do |format|
       if @stuk_book.save
