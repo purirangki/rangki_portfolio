@@ -59,6 +59,7 @@ GEM
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.9.0)
     callsite (0.0.11)
+    cancancan (1.13.1)
     coderay (1.1.1)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
@@ -247,6 +248,7 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass
   bullet
+  cancancan
   coffee-rails (~> 4.1.0)
   devise
   dotenv-rails

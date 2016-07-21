@@ -20,6 +20,7 @@ class StukBooksController < ApplicationController
 
   # GET /stuk_books/1/edit
   def edit
+    authorize! :manage, @stuk_book
   end
 
   # POST /stuk_books
@@ -41,6 +42,8 @@ class StukBooksController < ApplicationController
   # PATCH/PUT /stuk_books/1
   # PATCH/PUT /stuk_books/1.json
   def update
+    authorize! :manage, @stuk_book
+
     respond_to do |format|
       if @stuk_book.update(stuk_book_params)
         format.html { redirect_to @stuk_book, notice: 'Stuk book was successfully updated.' }
@@ -55,6 +58,8 @@ class StukBooksController < ApplicationController
   # DELETE /stuk_books/1
   # DELETE /stuk_books/1.json
   def destroy
+    authorize! :manage, @stuk_book
+    
     @stuk_book.destroy
     respond_to do |format|
       format.html { redirect_to stuk_books_url, notice: 'Stuk book was successfully destroyed.' }
