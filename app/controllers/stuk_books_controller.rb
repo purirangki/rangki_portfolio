@@ -4,7 +4,7 @@ class StukBooksController < ApplicationController
   # GET /stuk_books
   # GET /stuk_books.json
   def index
-    @stuk_books = StukBook.all
+    @stuk_books = StukBook.available
   end
 
   # GET /stuk_books/1
