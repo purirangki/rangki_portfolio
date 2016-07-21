@@ -12,6 +12,7 @@ nav.navbar.navbar-default
       ul.nav.navbar-nav.navbar-right
         - if controller.controller_name == 'estuk'
           li = link_to 'Books', stuk_books_path
+          li = link_to 'Dashboard', stuk_books_dashboard_path
         - if current_user
           li = link_to 'Edit profile', edit_user_registration_path
           li = link_to 'Sign out', destroy_user_session_path, method: :delete
