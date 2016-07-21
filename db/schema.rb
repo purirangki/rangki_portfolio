@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160721023401) do
+ActiveRecord::Schema.define(version: 20160721024401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "e_stuk_sales", force: :cascade do |t|
+    t.string   "buyer_email"
+    t.string   "seller_email"
+    t.integer  "amount"
+    t.string   "guid"
+    t.integer  "book_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
