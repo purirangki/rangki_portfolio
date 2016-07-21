@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @stuk_book.name
+p
+  strong Author:
+  = @stuk_book.author
+p
+  strong Description:
+  = @stuk_book.description
+p
+  strong Price:
+  = @stuk_book.price
+p
+  strong Availability:
+  = @stuk_book.availability
+
+= link_to 'Edit', edit_stuk_book_path(@stuk_book)
+'|
+= link_to 'Back', stuk_books_path
