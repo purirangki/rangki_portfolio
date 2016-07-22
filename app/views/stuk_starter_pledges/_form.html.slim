@@ -1,0 +1,14 @@
+= simple_form_for @stuk_starter_pledge, url: "#", method: :get do |f|
+  h1 Alrighty!
+  h2 Enter your pledge amount
+
+  fieldset
+    = f.input :amount, placeholder: "Enter your pledge amount:", input_html: { value: @stuk_starter_reward.try(:value), required: true}
+  br
+  fieldset
+    legend Select your reward
+    = f.collection_radio_buttons(:reward_id, @stuk_starter_rewards, :id, :id, :checked => @stuk_starter_reward.try(:id)) do |b|
+      - b.label(:"data-value" => b.value) { b.radio_button + pledge_radio_button(b.object) }
+
+  = f.submit "Continue to next step", class: "btn btn-success btn-md pull-right"
+  .clearfix

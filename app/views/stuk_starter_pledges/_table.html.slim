@@ -1,0 +1,14 @@
+table.table.table-hover
+  thead
+    tr
+      th #
+      th Project
+      th Pledge
+      th Estimated Delivery
+  tbody
+    - if pledges.any?
+      - pledges.each do |pledge|
+        = render 'stuk_starter_pledge', pledge: pledge
+    - else
+      tr
+        td[colspan="4"] No pledges available

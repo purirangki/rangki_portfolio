@@ -1,0 +1,5 @@
+tr
+  th[scope="row"] #{pledge.id}
+  td = link_to pledge.stuk_starter_project.name, stuk_starter_project_path(pledge.stuk_starter_project)
+  td = number_to_currency(pledge.amount, unit: "$")
+  td = pledge.estimated_delivery
