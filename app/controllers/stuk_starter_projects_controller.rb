@@ -32,6 +32,27 @@ class StukStarterProjectsController < ApplicationController
     end
   end
 
+  def update
+    respond_to do |format|
+      if @stuk_starter_project.update(project_params)
+        format.html { redirect_to @stuk_starter_project, notice: 'Project was successfully updated' }
+        format.json { render :show, status: :ok, location: @stuk_starter_project }
+      else
+        format.html { redirect_to :edit }
+        format.json { render json: @stuk_starter_project.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @stuk_starter_project.destroy
+    respond_to do |format|
+      format.html { redirect_to project_path, notice: 'Project was successfully deleted' }
+      format.json { head :no_content }
+    end
+  end
+
+
   private
 
     def set_project
