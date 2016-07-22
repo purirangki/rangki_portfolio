@@ -20,5 +20,7 @@ Rails.application.routes.draw do
   get 'pages/estuk_home', path: 'estuk', as: 'estuk'
   get 'pages/stuk_starter_home', path: 'stuk_starter', as: 'stuk_starter'
 
-  resources :stuk_starter_projects
+  resources :stuk_starter_projects do
+    resources :stuk_starter_rewards, only: [:new, :create, :edit, :update, :destroy]
+  end
 end
