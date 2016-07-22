@@ -1,0 +1,21 @@
+.text-right
+  = link_to 'Edit', edit_project_reward_path(@project, reward)
+  = link_to 'Delete', project_reward_path(@project, reward), method: :delete, data: { confirm: "Are you sure?" }
+
+= link_to "#", class: "reward" do
+  .reward-box
+    p.pledgePledge $#{stuk_starter_reward.value} or more
+
+    p.backers
+      span.primary-color
+        i.fa.fa-cog
+      |20 backers
+
+    p.description #{stuk_starter_reward.description}
+
+    p.time
+      span.grey Estimated delivery:
+      br
+      #{stuk_starter_reward.estimated_delivery}
+
+    .reward-hover Select this reward.

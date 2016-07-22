@@ -1,6 +1,6 @@
 .col-md-4.col-sm-6.col-xs-12
   .project-box
-    = link_to image_tag(stuk_starter_project.image_url, alt: stuk_starter_project.name, width: '100%', height: '200px'), '#'
+    = link_to image_tag(stuk_starter_project.image_url, alt: stuk_starter_project.name, width: '100%', height: '200px'), stuk_starter_project_path(stuk_starter_project)
     .description-box
       .title
         = link_to stuk_starter_project.name, '#'

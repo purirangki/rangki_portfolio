@@ -1,6 +1,7 @@
 class StukStarterRewardsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_project
+  before_action :set_reward, except: [:new, :create]
 
   def new
     @stuk_starter_reward = @stuk_starter_project.stuk_starter_rewards.build
@@ -8,6 +9,10 @@ class StukStarterRewardsController < ApplicationController
     respond_to do |format|
       format.html
     end
+  end
+
+  def edit
+    
   end
 
   def create
@@ -22,9 +27,32 @@ class StukStarterRewardsController < ApplicationController
     end
   end
 
+  def update
+    respond_to do |format|
+      if @stuk_starter_reward.update(reward_params)
+        format.html { redirect_to @stuk_starter_project, notice: 'Reward was successfully updated' }
+      else
+        format.html { render :edit }
+      end
+    end
+  end
+
+  def destroy
+    @stuk_starter_reward.destroy
+
+    respond_to do |format|
+      format.html { redirect_to stuk_starter_projects_path(@stuk_starter_project), notice: 'Reward was successfully destroyed' }
+    end
+  end
+
+
   private
     def set_project
       @stuk_starter_project = StukStarterProject.find(params[:project_id])
+    end
+
+    def set_reward
+      @stuk_starter_reward = @stuk_starter_project.stuk_starter_rewards.find(params[:id])
     end
 
     def reward_params

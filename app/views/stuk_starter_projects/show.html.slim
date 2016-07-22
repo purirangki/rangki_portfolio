@@ -27,5 +27,5 @@
       h3.project-subtitle Rewards
       p = @stuk_starter_project.description
     .col-md-4
-      p Rewards will be rendered in here...
+      = render @stuk_starter_rewards
       = link_to 'Add Reward', new_stuk_starter_project_stuk_starter_reward(@stuk_starter_project), class: 'btn btn-primary'

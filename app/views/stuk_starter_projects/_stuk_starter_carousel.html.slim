@@ -13,7 +13,7 @@
           .container
             h2 #{project.name}
             p #{project.short_description}
-            = link_to 'View Project', '#', class: 'btn btn-success btn-lg'
+            = link_to 'View Project', stuk_starter_project_path(project), class: 'btn btn-success btn-lg'
 
   / Controls
   a.left.carousel-control[href="#carousel-example-generic" role="button" data-slide="prev"]

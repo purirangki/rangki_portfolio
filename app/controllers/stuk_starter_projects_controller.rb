@@ -9,6 +9,7 @@ class StukStarterProjectsController < ApplicationController
   end
 
   def show
+    @stuk_starter_rewards = @stuk_starter_project.stuk_starter_rewards
   end
 
   def new

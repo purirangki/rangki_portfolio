@@ -14,6 +14,8 @@ nav.navbar.navbar-default
           - if controller.controller_name == 'stuk_books'
             li = link_to 'Books', stuk_books_path
             li = link_to 'Dashboard', estuk_dashboard_path
+          - elsif controller.controller_name == 'stuk_starters'
+            li = link_to 'Start a project', new_stuk_starter_project_path
           li = link_to 'Edit profile', edit_user_registration_path
           li = link_to 'Sign out', destroy_user_session_path, method: :delete
         - else
