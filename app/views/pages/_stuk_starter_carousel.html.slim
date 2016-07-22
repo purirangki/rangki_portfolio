@@ -1,19 +1,19 @@
 #carousel-example-generic.carousel.slide[data-ride="carousel"]
   / Indicators
   ol.carousel-indicators
-    li.active[data-target="#carousel-example-generic" data-slide-to="0"]
-    li[data-target="#carousel-example-generic" data-slide-to="1"]
-    li[data-target="#carousel-example-generic" data-slide-to="2"]
+    - stuk_starter_projects.count.times do |i|
+      li[data-target="#carousel-example-generic" data-slide-to="#{i}" class="#{'active' if i.zero?}"]
 
   / Wrapper for slides
   .carousel-inner[role="listbox"]
-    .item.active
-      img[src="http://images.freeimages.com/images/previews/5b0/rubik-s-cube-1-1424892.jpg" alt="..."]
-      .carousel-caption ...
-    .item
-      img[src="..." alt="..."]
-      .carousel-caption ...
-    |...
+    - stuk_starter_projects.each_with_index do |project, index|
+      .item[class="#{'active' if index.zero?}"]
+        img[src="#{project.image_url}" alt="..."]
+        .carousel-caption
+          .container
+            h2 #{project.name}
+            p #{project.short_description}
+            = link_to 'View Project', '#', class: 'btn btn-success btn-lg'
 
   / Controls
   a.left.carousel-control[href="#carousel-example-generic" role="button" data-slide="prev"]
