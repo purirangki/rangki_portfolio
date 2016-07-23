@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160721075722) do
+ActiveRecord::Schema.define(version: 20160723135740) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,26 @@ ActiveRecord::Schema.define(version: 20160721075722) do
 
   add_index "stuk_books", ["slug"], name: "index_stuk_books_on_slug", unique: true, using: :btree
 
+  create_table "stuk_starter_pledges", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "stuk_starter_reward_id"
+    t.integer  "amount"
+    t.decimal  "shipping"
+    t.date     "expiration_date"
+    t.string   "uuid"
+    t.string   "name"
+    t.string   "address"
+    t.string   "city"
+    t.string   "country"
+    t.string   "postal_code"
+    t.string   "status"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "stuk_starter_pledges", ["stuk_starter_reward_id"], name: "index_stuk_starter_pledges_on_stuk_starter_reward_id", using: :btree
+  add_index "stuk_starter_pledges", ["user_id"], name: "index_stuk_starter_pledges_on_user_id", using: :btree
+
   create_table "stuk_starter_projects", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
@@ -73,6 +93,19 @@ ActiveRecord::Schema.define(version: 20160721075722) do
   end
 
   add_index "stuk_starter_projects", ["user_id"], name: "index_stuk_starter_projects_on_user_id", using: :btree
+
+  create_table "stuk_starter_rewards", force: :cascade do |t|
+    t.integer  "stuk_starter_project_id"
+    t.text     "description"
+    t.integer  "value"
+    t.decimal  "shipping",                precision: 8, scale: 2
+    t.integer  "number_available"
+    t.date     "estimated_delivery"
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+  end
+
+  add_index "stuk_starter_rewards", ["stuk_starter_project_id"], name: "index_stuk_starter_rewards_on_stuk_starter_project_id", using: :btree
 
   create_table "stuk_todo_tasks", force: :cascade do |t|
     t.text     "content"
@@ -96,10 +129,14 @@ ActiveRecord::Schema.define(version: 20160721075722) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "customer_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "stuk_starter_pledges", "stuk_starter_rewards"
+  add_foreign_key "stuk_starter_pledges", "users"
   add_foreign_key "stuk_starter_projects", "users"
+  add_foreign_key "stuk_starter_rewards", "stuk_starter_projects"
 end

@@ -23,5 +23,6 @@ Rails.application.routes.draw do
   resources :stuk_starter_projects do
     resources :stuk_starter_rewards, only: [:new, :create, :edit, :update, :destroy]
     resources :stuk_starter_pledges
+    resources :stuk_starter_payments, only: [:new, :create]
   end
 end

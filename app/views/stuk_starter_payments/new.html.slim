@@ -1,0 +1,26 @@
+.project-intro
+  .container
+    .row
+      .col-md-12
+        h1 Payment information
+        p
+          |Your card will not be charged at this time. If the project is successfully funded your card will be charged 
+          strong = number_to_currency(@amount, unit: '$', precision: 2) 
+          |  when the project ends
+        br
+        = render 'form'
+
+
+javascript:
+  var brain;
+  
+  brain = function() {
+    var braintree = Braintree.create("#{ENV['BRAINTREE_CLIENT_SIDE_ENCRYPTION_KEY']}");
+    braintree.onSubmitEncryptionForm('braintree-payment-form');
+  }
+  braintree.setup("#{@client_token}", 'dropin', {
+    container: 'card-fields',
+    paypal: {
+      singleUse: false
+    }
+  });

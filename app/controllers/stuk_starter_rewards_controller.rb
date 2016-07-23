@@ -48,7 +48,7 @@ class StukStarterRewardsController < ApplicationController
 
   private
     def set_project
-      @stuk_starter_project = StukStarterProject.find(params[:project_id])
+      @stuk_starter_project = StukStarterProject.find(params[:stuk_starter_project_id])
     end
 
     def set_reward
@@ -56,7 +56,7 @@ class StukStarterRewardsController < ApplicationController
     end
 
     def reward_params
-      params.require(:reward).permit(:name, :description, :value, :shipping, :number_available, :estimated_delivery)
+      params.require(:stuk_starter_reward).permit(:name, :description, :value, :shipping, :number_available, :estimated_delivery)
     end
 
 end

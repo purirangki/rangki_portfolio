@@ -72,6 +72,8 @@ GEM
     bootstrap-sass (3.3.5.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.3.0)
+    braintree (2.62.0)
+      builder (>= 2.0.0)
     builder (3.2.2)
     bullet (5.0.0)
       activesupport (>= 3.0.0)
@@ -289,6 +291,7 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass
   bootstrap-wysihtml5-rails!
+  braintree
   bullet
   cancancan
   carrierwave

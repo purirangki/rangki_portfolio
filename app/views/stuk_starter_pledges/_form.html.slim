@@ -1,4 +1,4 @@
-= simple_form_for @stuk_starter_pledge, url: "#", method: :get do |f|
+= simple_form_for @stuk_starter_pledge, url: new_stuk_starter_project_stuk_starter_payment_path(@stuk_starter_project), method: :get do |f|
   h1 Alrighty!
   h2 Enter your pledge amount
 
@@ -7,7 +7,7 @@
   br
   fieldset
     legend Select your reward
-    = f.collection_radio_buttons(:reward_id, @stuk_starter_rewards, :id, :id, :checked => @stuk_starter_reward.try(:id)) do |b|
+    = f.collection_radio_buttons(:stuk_starter_reward_id, @stuk_starter_rewards, :id, :id, :checked => @stuk_starter_reward.try(:id)) do |b|
       - b.label(:"data-value" => b.value) { b.radio_button + pledge_radio_button(b.object) }
 
   = f.submit "Continue to next step", class: "btn btn-success btn-md pull-right"

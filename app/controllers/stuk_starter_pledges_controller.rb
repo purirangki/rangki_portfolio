@@ -15,6 +15,7 @@ class StukStarterPledgesController < ApplicationController
     @stuk_starter_pledge = current_user.stuk_starter_pledges.build
     @stuk_starter_rewards = @stuk_starter_project.stuk_starter_rewards
 
+
     respond_to do |format|
       format.html
     end
@@ -22,11 +23,11 @@ class StukStarterPledgesController < ApplicationController
 
   private
     def set_project
-      @stuk_starter_project = StukStarterProject.find(params[:project_id])
+      @stuk_starter_project = StukStarterProject.find(params[:stuk_starter_project_id])
     end
 
     def set_reward
-      @stuk_starter_reward = @stuk_starter_project.stuk_starter_rewards.find_by_id(params[:reward_id])
+      @stuk_starter_reward = @stuk_starter_project.stuk_starter_rewards.find_by_id(params[:stuk_starterreward_id])
     end
 
 end

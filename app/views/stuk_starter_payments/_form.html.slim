@@ -1,0 +1,17 @@
+= simple_form_for @stuk_starter_pledge, url: { controller: :stuk_starter_payments, action: :create }, method: :post do |f|
+
+  = f.input :amount, :as => :hidden, input_html: { :value => @amount }
+  = f.input :stuk_starter_reward_id, :as => :hidden, input_html: { :value => @stuk_starter_reward.id }
+  fieldset
+    legend Card Information
+    #card-fields
+  br
+  fieldset
+    legend Billing Address
+    = f.input :name
+    = f.input :address
+    = f.input :city
+    = f.input :country, as: :string
+    = f.input :postal_code
+  
+  = f.submit "Pledge", class: "btn btn-success btn-md pull-right"

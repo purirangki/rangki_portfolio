@@ -57,7 +57,7 @@ class StukStarterProjectsController < ApplicationController
   private
 
     def set_project
-      @stuk_starter_project = Project.find(params[:id])
+      @stuk_starter_project = StukStarterProject.find(params[:id])
     end
 
     def project_params
