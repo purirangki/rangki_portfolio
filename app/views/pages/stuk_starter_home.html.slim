@@ -1,5 +1,5 @@
 - if @displayed_projects.any?
-  = render 'stuk_starter_carousel', stuk_starter_projects: @displayed_projects
+  = render 'stuk_starter_projects/stuk_starter_carousel', stuk_starter_projects: @displayed_projects
 
   .container
     br:br:br
@@ -11,4 +11,4 @@
   .container.text-center
     br:br:br
     h2 Create your first project
-    = link_to 'Start Project!', '#', class: 'btn btn-success btn-lg'
+    = link_to 'Start Project!', new_stuk_starter_project_path, class: 'btn btn-success btn-lg'

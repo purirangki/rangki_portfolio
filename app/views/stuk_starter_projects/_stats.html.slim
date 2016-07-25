@@ -2,13 +2,13 @@
   .row
     / number of backers
     .col-xs-4.col-sm-12
-      .val 10
+      .val #{@stuk_starter_pledges.count}
       .lab backers
       
     / goal
     .col-xs-4.col-sm-12
-      .val 1000$
-      .lab goal
+      .val #{number_to_currency(@stuk_starter_project.total_backed_amount, unit: '$', precision: 0)}
+      .lab pledge of #{number_to_currency(@stuk_starter_project.goal, unit: '$', precision: 0)} goal
 
     / days to go
     .col-xs-4.col-sm-12
