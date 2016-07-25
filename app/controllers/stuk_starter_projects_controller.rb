@@ -1,7 +1,8 @@
 class StukStarterProjectsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_project, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_pledges, only: [:show]
+  load_and_authorize_resource
   
   def index
     @stuk_starter_projects = StukStarterProject.all
@@ -10,6 +11,7 @@ class StukStarterProjectsController < ApplicationController
 
   def show
     @stuk_starter_rewards = @stuk_starter_project.stuk_starter_rewards
+    @days_to_go = @stuk_starter_project.days_to_go
   end
 
   def new
@@ -56,12 +58,20 @@ class StukStarterProjectsController < ApplicationController
 
   private
 
+    def set_pledges
+      @stuk_starter_pledges = @stuk_starter_project.stuk_starter_pledges
+    end
+
     def set_project
-      @stuk_starter_project = StukStarterProject.find(params[:id])
+      @stuk_starter_project = StukStarterProject.friendly.find(params[:id])
+    end
+
+    def create_params
+      params.require(:stuk_starter_project).permit(:name, :short_description, :description, :goal, :image_url)
     end
 
     def project_params
-      params.require(:stuk_starter_project).permit(:name, :short_description, :description, :goal, :image_url, :expiration_date)
+      params.require(:stuk_starter_project).permit(:name, :short_description, :description, :goal, :image_url)
     end
 
 end

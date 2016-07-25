@@ -8,18 +8,21 @@
       .col-md-8
         = link_to image_tag(@stuk_starter_project.image_url, alt: @stuk_starter_project.name, width: '100%'), stuk_starter_project_path(@stuk_starter_project)
       .col-md-4
-        .project-mgmt
-          = link_to 'Edit', edit_stuk_starter_project_path(@stuk_starter_project)
-          = link_to 'Delete', stuk_starter_project_path(@stuk_starter_project), method: :delete, data: { confirm: 'Are you sure?' }
+        - if can? :manage, @stuk_starter_project
+          .project-mgmt
+            = link_to 'Edit', edit_stuk_starter_project_path(@stuk_starter_project)
+            = link_to 'Delete', stuk_starter_project_path(@stuk_starter_project), method: :delete, data: { confirm: 'Are you sure?' }
         
-        = render 'stats'
-        = link_to 'See project backers', stuk_starter_project_stuk_starter_pledges_path(@stuk_starter_project), class: 'btn btn-success btn-lg'
-        = link_to 'Back this project', new_stuk_starter_project_stuk_starter_pledge_path(@stuk_starter_project), class: 'btn btn-success btn-lg'
-        p.project-time This project will expire in 3 days.
+        = render 'stats', stuk_starter_project: @stuk_starter_project, days_to_go: @days_to_go
+
+        - if can? :manage, @stuk_starter_project
+          = link_to 'See project backers', stuk_starter_project_stuk_starter_pledges_path(@stuk_starter_project), class: 'btn btn-success btn-lg'
+          = link_to 'Back this project', new_stuk_starter_project_stuk_starter_pledge_path(@stuk_starter_project), class: 'btn btn-success btn-lg'
+        p.project-time #{funding_status_message @stuk_starter_project}
       
     .row
       .col-md-8
-        p.project-small-description Project small description.
+        p.project-small-description #{@stuk_starter_project.short_description}
 
 .container
   .row
@@ -28,4 +31,5 @@
       p = @stuk_starter_project.description
     .col-md-4
       = render @stuk_starter_rewards
-      = link_to 'Add Reward', new_stuk_starter_project_stuk_starter_reward_path(@stuk_starter_project), class: 'btn btn-primary'
+      - if can? :manage, @stuk_starter_project.stuk_starter_rewards.build
+        = link_to 'Add Reward', new_stuk_starter_project_stuk_starter_reward_path(@stuk_starter_project), class: 'btn btn-primary'

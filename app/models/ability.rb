@@ -3,10 +3,18 @@ class Ability
 
   def initialize(user)
     user ||= User.new
+
     can :read, :all
     can :manage, StukBook do |stuk_book|
       stuk_book.try(:user) == user
     end
+
+    can :read, [StukStarterProject, StukStarterReward]
+    unless user.nil?
+        can :manage, StukStarterProject, user_id: user.id
+        can :manage, StukStarterReward, stuk_starter_project: { user_id: user.id }
+    end
+
     
     # Define abilities for the passed in user here. For example:
     #

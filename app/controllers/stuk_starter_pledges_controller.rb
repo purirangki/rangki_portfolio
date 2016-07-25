@@ -4,6 +4,7 @@ class StukStarterPledgesController < ApplicationController
   before_action :set_reward
 
   def index
+    authorize! :manage, @stuk_starter_project
     @stuk_starter_pledges = @stuk_starter_project.stuk_starter_pledges
 
     respond_to do |format|

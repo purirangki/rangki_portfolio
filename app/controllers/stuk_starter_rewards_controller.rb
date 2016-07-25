@@ -2,6 +2,7 @@ class StukStarterRewardsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_project
   before_action :set_reward, except: [:new, :create]
+  load_and_authorize_resource through: :stuk_starter_project
 
   def new
     @stuk_starter_reward = @stuk_starter_project.stuk_starter_rewards.build
@@ -48,11 +49,15 @@ class StukStarterRewardsController < ApplicationController
 
   private
     def set_project
-      @stuk_starter_project = StukStarterProject.find(params[:stuk_starter_project_id])
+      @stuk_starter_project = StukStarterProject.friendly.find(params[:stuk_starter_project_id])
     end
 
     def set_reward
       @stuk_starter_reward = @stuk_starter_project.stuk_starter_rewards.find(params[:id])
+    end
+
+    def create_params
+      params.require(:stuk_starter_reward).permit(:name, :description, :value, :shipping, :number_available, :estimated_delivery)
     end
 
     def reward_params
