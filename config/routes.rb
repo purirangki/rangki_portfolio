@@ -25,4 +25,6 @@ Rails.application.routes.draw do
     resources :stuk_starter_pledges
     resources :stuk_starter_payments, only: [:new, :create]
   end
+
+  match '/delayed_job' => DelayedJobWeb, anchor: false, via: [:get, :post]
 end
