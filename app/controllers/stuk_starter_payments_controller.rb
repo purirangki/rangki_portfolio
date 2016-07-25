@@ -52,7 +52,7 @@ class StukStarterPaymentsController < ApplicationController
   private
 
     def set_project
-      @stuk_starter_project = StukStarterProject.find(params[:stuk_starter_project_id])
+      @stuk_starter_project = StukStarterProject.friendly.find(params[:stuk_starter_project_id])
     end
 
     def set_amount

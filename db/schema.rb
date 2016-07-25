@@ -11,10 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160723135740) do
+ActiveRecord::Schema.define(version: 20160725013808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer  "priority",   default: 0, null: false
+    t.integer  "attempts",   default: 0, null: false
+    t.text     "handler",                null: false
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
   create_table "e_stuk_sales", force: :cascade do |t|
     t.string   "buyer_email"
@@ -85,11 +101,12 @@ ActiveRecord::Schema.define(version: 20160723135740) do
     t.text     "short_description"
     t.text     "description"
     t.string   "image_url"
-    t.string   "status",            default: "pending"
-    t.string   "goal"
+    t.string   "status",                                    default: "pending"
+    t.decimal  "goal",              precision: 8, scale: 2
     t.string   "expiration_date"
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.datetime "created_at",                                                    null: false
+    t.datetime "updated_at",                                                    null: false
+    t.string   "slug"
   end
 
   add_index "stuk_starter_projects", ["user_id"], name: "index_stuk_starter_projects_on_user_id", using: :btree

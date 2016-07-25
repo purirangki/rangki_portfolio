@@ -7,7 +7,7 @@ class CreateStukStarterProjects < ActiveRecord::Migration
       t.text :description
       t.string :image_url
       t.string :status, default: 'pending'
-      t.string :goal, precision: 8, scale: 2
+      t.decimal :goal, precision: 8, scale: 2
       t.string :expiration_date
 
       t.timestamps null: false
