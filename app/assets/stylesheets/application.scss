@@ -2,11 +2,16 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@import "bootstrap-social";
+@import "devise";
 @import "header";
 @import "landing";
+@import "pledges";
 @import "projects";
 @import "settings";
 @import "variables";
+@import "line";
+@import "path";
 
 // wysiwyg bootstrap
 @import "bootstrap-wysihtml5/bootstrap3-wysihtml5";

@@ -36,7 +36,7 @@ gem 'simple_form'
 gem 'devise'
 gem 'cancancan'
 
-gem 'auto_html'
+gem 'auto_html', '~>1.6.4'
 
 gem 'carrierwave'
 gem 'cloudinary'
@@ -52,3 +52,21 @@ gem 'momentjs-rails'
 gem 'braintree'
 gem 'delayed_job_active_record'
 gem 'delayed_job_web'
+
+
+# Oauth Authentication
+gem 'domp'
+
+gem 'omniauth-oauth2'
+
+# Omniauth Gems #
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-github'
+gem "omniauth-google-oauth2"
+gem 'omniauth-path'
+gem 'omniauth-line'
+gem 'omniauth-instagram'
+gem 'omniauth-linkedin-oauth2'
+
+gem 'httparty'
