@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   before_action :authenticate_user!, only: [:dashboard]
 
-  def stuk_to_do_home
+  def stuk_todo_home
     redirect_to stuk_todo_tasks_path if current_user
   end
 
@@ -19,5 +19,9 @@ class PagesController < ApplicationController
   def stuk_starter_home
     @stuk_starter_projects = StukStarterProject.all
     @displayed_projects = StukStarterProject.take(4)
+  end
+
+  def stuk_places_home
+    
   end
 end

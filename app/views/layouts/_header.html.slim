@@ -6,8 +6,7 @@ nav.navbar.navbar-default
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      = link_to "<i class='fa fa-circle-o-notch'></i> Stukdo".html_safe, stuk_to_do_path, class: 'navbar-brand' if controller.controller_name == 'stuk_todo_tasks'
-      = link_to "<i class='fa fa-circle-o-notch'></i> eStuk".html_safe, estuk_path, class: 'navbar-brand' if controller.controller_name == 'stuk_books'
+      = link_to_home_brand(controller.controller_name)
     .collapse.navbar-collapse#bs-example-navbar-collapse-1
       ul.nav.navbar-nav.navbar-right
         - if current_user
