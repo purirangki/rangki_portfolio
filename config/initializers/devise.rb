@@ -245,7 +245,7 @@ Devise.setup do |config|
   config.omniauth :twitter, ENV['TWITTER_KEY'], ENV['TWITTER_SECRET']
   config.omniauth :github, ENV['GITHUB_ID'], ENV['GITHUB_SECRET'], scope: 'user'
   config.omniauth :path, ENV['PATH_ID'], ENV['PATH_SECRET']
-  config.omniauth :line, ENV['GITHUB_ID'], ENV['GITHUB_SECRET']
+  config.omniauth :line, ENV['LINE_ID'], ENV['LINE_SECRET']
   config.omniauth :instagram, ENV['GITHUB_ID'], ENV['GITHUB_SECRET']
   config.omniauth :linkedin, ENV['GITHUB_ID'], ENV['GITHUB_SECRET']
   
