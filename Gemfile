@@ -70,3 +70,4 @@ gem 'omniauth-instagram'
 gem 'omniauth-linkedin-oauth2'
 
 gem 'httparty'
+gem 'gravatarify', '~> 3.0.0'

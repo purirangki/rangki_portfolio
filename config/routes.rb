@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'pages#stuk_to_do_home'
+  root 'pages#stuk_todo_home'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   get 'pages/stuk_todo_home', path: 'stuk_todo', as: 'stuk_todo'
   get 'pages/estuk_home', path: 'estuk', as: 'estuk'
