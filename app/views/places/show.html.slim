@@ -1,0 +1,24 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @place.name
+p
+  strong Address:
+  = @place.address
+p
+  strong Description:
+  = @place.description
+p
+  strong Phone:
+  = @place.phone
+p
+  strong Website:
+  = @place.website
+p
+  strong User:
+  = @place.user_id
+
+= link_to 'Edit', edit_place_path(@place)
+'|
+= link_to 'Back', places_path
