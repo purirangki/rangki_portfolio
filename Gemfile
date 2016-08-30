@@ -71,3 +71,4 @@ gem 'omniauth-linkedin-oauth2'
 
 gem 'httparty'
 gem 'gravatarify', '~> 3.0.0'
+gem 'geocoder'

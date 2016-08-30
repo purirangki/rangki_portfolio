@@ -19,6 +19,27 @@ p
   strong User:
   = @place.user_id
 
+p
+  = @place.longitude
+  = @place.latitude
+
+#map-canvas style="width: 230px; height: 230px"
+
 = link_to 'Edit', edit_place_path(@place)
 '|
 = link_to 'Back', places_path
+
+
+javascript:
+  var map;
+  var myCenter = { lat: #{{@place.latitude}}, lng: #{{@place.longitude}} };
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map-canvas'), {
+      center: myCenter,
+      zoom: 12
+    });
+    var marker = new google.maps.Marker({
+      position: myCenter,
+      map: map
+    })
+  }

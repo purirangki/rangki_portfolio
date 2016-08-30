@@ -6,6 +6,7 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
     / script[type="text/javascript" src="https://js.braintreegateway.com/v2/braintree.js"]
+    script[async defer src="https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAPS_API']}&callback=initMap"]
   body
 
     = render 'layouts/header'
