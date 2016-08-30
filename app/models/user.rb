@@ -19,5 +19,6 @@ class User < ActiveRecord::Base
   has_many :stuk_starter_projects, dependent: :destroy
   has_many :stuk_starter_pledges, dependent: :destroy
   has_many :stuk_starter_rewards, through: :stuk_starter_pledges, dependent: :destroy
-  has_many :places
+  has_many :places, dependent: :destroy
+  has_many :places_reviews, dependent: :destroy
 end

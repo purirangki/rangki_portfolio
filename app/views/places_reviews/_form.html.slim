@@ -1,0 +1,9 @@
+= simple_form_for(@places_review) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :content, required: true
+    = f.hidden_field :place_id, required: true, value: @place.id
+
+  .form-actions
+    = f.button :submit, 'Create Review'
