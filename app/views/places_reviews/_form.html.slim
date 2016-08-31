@@ -4,6 +4,17 @@
   .form-inputs
     = f.input :content, required: true
     = f.hidden_field :place_id, required: true, value: @place.id
+    = f.hidden_field :score, required: true
+    .score
 
   .form-actions
     = f.button :submit, 'Create Review'
+
+javascript:
+  $(".score").raty({
+    starOn: "#{{image_path('star-on.png')}}",
+    starOff: "#{{image_path('star-off.png')}}",
+    target: "#places_review_score",
+    targetKeep: true,
+    targetType: "number"
+  });

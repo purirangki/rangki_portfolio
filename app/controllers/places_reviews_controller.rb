@@ -11,7 +11,7 @@ class PlacesReviewsController < ApplicationController
 
     respond_to do |format|
       if @places_review.save
-        format.html { redirect_to place_path(@places_review), notice: 'Review was successfully created.' }
+        format.html { redirect_to place_path(@places_review.place), notice: 'Review was successfully created.' }
       else
         format.html { render :new }
       end
@@ -21,7 +21,7 @@ class PlacesReviewsController < ApplicationController
   def update
     respond_to do |format|
       if @places_review.update(places_review_params)
-        format.html { redirect_to place_path(@places_review), notice: 'Review was successfully updated.' }
+        format.html { redirect_to place_path(@places_review.place), notice: 'Review was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -31,7 +31,7 @@ class PlacesReviewsController < ApplicationController
   def destroy
     @places_review.destroy
     respond_to do |format|
-      format.html { redirect_to place_path(@places_review), notice: 'Review was successfully destroyed.' }
+      format.html { redirect_to place_path(@places_review.place), notice: 'Review was successfully destroyed.' }
     end
   end
 
@@ -41,6 +41,6 @@ class PlacesReviewsController < ApplicationController
     end
 
     def places_review_params
-      params.require(:places_review).permit(:content, :place_id)
+      params.require(:places_review).permit(:content, :place_id, :score)
     end
 end

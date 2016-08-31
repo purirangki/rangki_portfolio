@@ -26,10 +26,19 @@ javascript:
   function initMap() {
     map = new google.maps.Map(document.getElementById('map-canvas'), {
       center: myCenter,
-      zoom: 12
+      zoom: 13
     });
     var marker = new google.maps.Marker({
       position: myCenter,
       map: map
     })
   }
+
+- @places_reviews.each do |review|
+  javascript:
+    $(".score_#{review.id}").raty({
+      starOn: "#{{image_path('star-on.png')}}",
+      starOff: "#{{image_path('star-off.png')}}",
+      score: "#{review.score}",
+      readOnly: true
+    });

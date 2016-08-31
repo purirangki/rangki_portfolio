@@ -2,3 +2,4 @@ p
   = gravatar_tag places_review.user.email, size: 20
   |  #{places_review.content}
   |  by #{places_review.user.name}
+  div[class="score_#{places_review.id}"]
