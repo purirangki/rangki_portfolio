@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 
   resources :places
   resources :places_reviews
+  get 'stuk_places_dashboard' => 'pages#stuk_places_dashboard'
 
   match '/delayed_job' => DelayedJobWeb, anchor: false, via: [:get, :post]
 end

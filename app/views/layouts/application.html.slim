@@ -15,6 +15,6 @@ html
       .alert.alert-info.fade-in
         button.close[data-dismiss="alert"] x
         = message
-
-    .container
+    
+    div class=(current_page?(stuk_places_path) ? 'landing' : 'container')
       = yield

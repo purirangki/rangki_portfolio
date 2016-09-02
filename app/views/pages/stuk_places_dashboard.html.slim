@@ -1,0 +1,42 @@
+.row
+  .col-md-2
+    h3 = @user.name
+    = gravatar_tag @user.email, size: 150
+  .col-md-5
+    h3 My Places
+    table.table
+      thead
+        tr
+          th Name
+          th Created
+          th
+      tbody
+        - @places.each do |place|
+          tr
+            td = place.name
+            td #{time_ago_in_words(place.created_at)} ago
+            td #{link_to 'edit', edit_place_path(place)} | #{link_to 'delete', place_path(place), method: :delete}
+  .col-md-5
+    h3 My Reviews
+    table.table
+      thead
+        tr
+          th Place
+          th When
+          th Rating
+      tbody
+        - @places_reviews.each do |review|
+          tr
+            td = review.place.name
+            td #{time_ago_in_words(review.created_at)} ago
+            td[class="score_#{review.id}"]
+            td #{link_to 'edit', edit_places_review_path(review)} | #{link_to 'delete', places_review_path(review), method: :delete}
+
+- @places_reviews.each do |review|
+  javascript:
+    $(".score_#{review.id}").raty({
+      starOn: "#{{image_path('star-on.png')}}",
+      starOff: "#{{image_path('star-off.png')}}",
+      score: "#{review.score}",
+      readOnly: true
+    });

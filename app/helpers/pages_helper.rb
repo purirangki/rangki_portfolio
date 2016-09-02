@@ -1,5 +1,6 @@
 module PagesHelper
   def link_to_home_brand(ctrl_name)
+    ctrl_name = action_name if action_name == 'stuk_places_dashboard'
     case ctrl_name
     when 'stuk_todo_tasks'
       text = 'Stukdo'
@@ -10,7 +11,7 @@ module PagesHelper
     when /stuk_starter/
       text = 'Stuk Starter'
       path = stuk_starter_path
-    when 'stuk_places'
+    when 'places', 'stuk_places_dashboard'
       text = 'Stuk Places'
       path = stuk_places_path
     end
